@@ -1,4 +1,4 @@
-from DataAccess import UsuarioDAO as u
+from driver.DataAccess import UsuarioDAO as u
 
 def main() -> int:
     try:

@@ -1,4 +1,4 @@
-from DataAccess import ReservacionDAO as r
+from driver.DataAccess import ReservacionDAO as r
 # Acepta dd/mm/aaaa o dd/mm/aaaa HH:MM
 def main() -> int:
     try:

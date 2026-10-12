@@ -1,5 +1,5 @@
-from DataAccess import UsuarioDAO as u
-from DataAccess import AdministradorDAO as a
+from driver.DataAccess import UsuarioDAO as u
+from driver.DataAccess import AdministradorDAO as a
 
 
 def main() -> int:

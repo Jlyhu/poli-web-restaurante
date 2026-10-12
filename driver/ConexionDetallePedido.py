@@ -1,4 +1,4 @@
-from DataAccess import DetallePedidoDAO as dp
+from driver.DataAccess import DetallePedidoDAO as dp
 
 def main() -> int:
     try:

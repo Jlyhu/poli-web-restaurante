@@ -1,4 +1,4 @@
-from DataAccess.conexion import getConnection, unconnection
+from driver.DataAccess.conexion import getConnection, unconnection
 
 def findAllPagos():
     conn = getConnection()

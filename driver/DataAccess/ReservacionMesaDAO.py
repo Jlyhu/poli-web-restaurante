@@ -1,4 +1,4 @@
-from DataAccess.conexion import getConnection, unconnection
+from driver.DataAccess.conexion import getConnection, unconnection
 # `id_reservacion_mesa` INT NOT NULL,  `Mesa_id_mesa` INT NOT NULL,  `Reservacion_id_reservacion` INT NOT NULL,
 def findAllReservacionesMesa():
     conn = getConnection()

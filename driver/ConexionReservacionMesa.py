@@ -1,4 +1,4 @@
-from DataAccess import ReservacionMesaDAO as rm
+from driver.DataAccess import ReservacionMesaDAO as rm
 
 def main() -> int:
     try:

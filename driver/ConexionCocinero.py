@@ -1,4 +1,4 @@
-from DataAccess import CocineroDAO as co
+from driver.DataAccess import CocineroDAO as co
 
 def main() -> int:
     try:

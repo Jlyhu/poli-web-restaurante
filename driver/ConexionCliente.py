@@ -1,4 +1,4 @@
-from DataAccess import ClienteDAO as c
+from driver.DataAccess import ClienteDAO as c
 
 def main() -> int:
     try:

@@ -1,5 +1,5 @@
 from datetime import datetime
-from DataAccess import PagoDAO as pa
+from driver.DataAccess import PagoDAO as pa
 
 def main() -> int:
     try:
