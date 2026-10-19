@@ -89,7 +89,6 @@ def run():
 # Punto de entrada del programa
 if __name__ == '__main__':
     try:
-        print("OJO: la base es compartida. Usa ids de prueba propios (por ejemplo 20) en todos los pasos.")
         run()
     except ValueError:
         print("Valores no válidos: todos los ids deben ser números enteros.")

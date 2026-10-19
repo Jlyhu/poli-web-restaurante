@@ -36,7 +36,7 @@ def mostrar_reservaciones(reservaciones):
         print("No hay registros.")
     else:
         for r in reservaciones:
-            print(f"ID: {r.id_reservacion} | Fecha: {r.fecha:%Y-%m-%d} | Hora: {r.hora:%H:%M} | "
+            print(f"ID: {r.id_reservacion} | Fecha: {r.fecha} | Hora: {r.hora} | "
                 f"Personas: {r.numero_personas} | Estado: {r.estado} | Cliente: {r.Cliente_id_cliente}")
 
 
