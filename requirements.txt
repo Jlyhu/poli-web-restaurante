@@ -1,0 +1,16 @@
+# Driver (SQL directo)
+mysql-connector-python==26.7.0
+
+# ORM
+SQLAlchemy==2.1.5
+PyMySQL==1.2.3
+
+# REST
+Flask==3.1.3
+Flask-SQLAlchemy==3.1.1
+marshmallow==4.3.1
+flask-marshmallow==1.5.0
+marshmallow-sqlalchemy==1.6.0
+
+# Variables de entorno (.env)
+python-dotenv==1.2.4
