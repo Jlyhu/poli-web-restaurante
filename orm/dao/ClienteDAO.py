@@ -1,5 +1,5 @@
 # ============================================================
-# ClienteDAO.py
+# ClienteDAO.pya
 # Capa de acceso a datos (DAO) para la entidad Cliente, con ORM
 # Encapsula todas las operaciones CRUD sobre la tabla 'Cliente'
 # ============================================================
