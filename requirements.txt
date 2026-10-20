@@ -14,3 +14,8 @@ marshmallow-sqlalchemy==1.6.0
 
 # Variables de entorno (.env)
 python-dotenv==1.2.4
+Flask>=3.0,<4.0
+SQLAlchemy>=2.0,<3.0
+mysql-connector-python>=8.3
+python-dotenv>=1.0
+marshmallow>=3.20,<5.0
