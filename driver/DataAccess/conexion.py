@@ -12,7 +12,8 @@ def getConnection():
             user=os.getenv('DB_USER'),
             password=os.getenv('DB_PASS'),
             database=os.getenv('DB_NAME'),
-            port=os.getenv('DB_PORT')
+            port=int(os.getenv('DB_PORT')),
+            use_pure=True
         )
     except Exception as e:
         print("no se puede conectar a la base de datos:", e)
