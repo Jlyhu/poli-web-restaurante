@@ -1,0 +1,838 @@
+{
+  "info": {
+    "name": "PoliRestaurante - Daniela (Categoria, Mesero, Repartidor, Cajero, Caja, Pedido)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:5000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Categoria",
+      "item": [
+        {
+          "name": "Listar Categorias",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCategorias",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCategorias"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Categoria por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCategoria/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCategoria",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear Categoria",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/insertCategoria",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "insertCategoria"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Bebidas\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Editar Categoria",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/updateCategoria/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "updateCategoria",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Bebidas frías\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar Categoria",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/deleteCategoria/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "deleteCategoria",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mesero",
+      "item": [
+        {
+          "name": "Listar Meseros",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getMeseros",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getMeseros"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Mesero por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getMesero/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getMesero",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear Mesero",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/insertMesero",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "insertMesero"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"zona_asignada\": \"Terraza\",\n  \"Usuario_idUsuario\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Editar Mesero",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/updateMesero/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "updateMesero",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"zona_asignada\": \"Salón\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Meseros de un usuario",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getMeseros?usuario=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getMeseros"
+              ],
+              "query": [
+                {
+                  "key": "usuario",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Mesero",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/deleteMesero/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "deleteMesero",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Repartidor",
+      "item": [
+        {
+          "name": "Listar Repartidores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getRepartidores",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getRepartidores"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Repartidor por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getRepartidor/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getRepartidor",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear Repartidor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/insertRepartidor",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "insertRepartidor"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"placa_vehiculo\": \"ABC123\",\n  \"Usuario_idUsuario\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Editar Repartidor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/updateRepartidor/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "updateRepartidor",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"placa_vehiculo\": \"XYZ789\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar Repartidor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/deleteRepartidor/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "deleteRepartidor",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cajero",
+      "item": [
+        {
+          "name": "Listar Cajeros",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCajeros",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCajeros"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Cajero por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCajero/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCajero",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear Cajero",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/insertCajero",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "insertCajero"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Usuario_idUsuario\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Editar Cajero",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/updateCajero/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "updateCajero",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Usuario_idUsuario\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar Cajero",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/deleteCajero/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "deleteCajero",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Caja",
+      "item": [
+        {
+          "name": "Listar Cajas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCajas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCajas"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Caja por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCaja/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCaja",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear Caja",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/insertCaja",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "insertCaja"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto_inicial\": 50000,\n  \"Cajero_id_cajero\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Editar Caja",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/updateCaja/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "updateCaja",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto_inicial\": 60000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Cerrar caja",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cerrarCaja/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cerrarCaja",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto_final\": 120000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Cajas de un cajero",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCajas?cajero=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCajas"
+              ],
+              "query": [
+                {
+                  "key": "cajero",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Caja",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/deleteCaja/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "deleteCaja",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedido",
+      "item": [
+        {
+          "name": "Listar Pedidos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Obtener Pedido por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedido/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedido",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/insertPedido",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "insertPedido"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_pedido\": \"SALON\",\n  \"Mesero_id_mesero\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Editar Pedido",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/updatePedido/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "updatePedido",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo_pedido\": \"DOMICILIO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Cambiar estado (EN PREPARACION)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cambiarEstadoPedido/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cambiarEstadoPedido",
+                "1"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"EN PREPARACION\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Pedidos pendientes (cola de cocina)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidos?estado=PENDIENTE",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidos"
+              ],
+              "query": [
+                {
+                  "key": "estado",
+                  "value": "PENDIENTE"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Pedido",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/deletePedido/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "deletePedido",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
