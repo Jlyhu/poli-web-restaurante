@@ -10,11 +10,13 @@ import pkgutil
 
 from flask import Flask, jsonify
 from werkzeug.exceptions import HTTPException
+from flask_cors import CORS
 
 from rest import db, routes
 
 
 app = Flask(__name__)
+CORS(app)  # CAMBIO: CORS para permitir solicitudes desde cualquier origen (Cross-Origin Resource Sharing)
 
 # Al terminar cada petición se cierra su sesión: así se libera la conexión
 @app.teardown_appcontext
@@ -30,8 +32,9 @@ for modulo in pkgutil.iter_modules(routes.__path__):
     if modulo.name.endswith('Routes'):
         app.register_blueprint(importlib.import_module(f'rest.routes.{modulo.name}').bp)
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+# <-- CAMBIO 2: comentado para que no arranque aquí y bloquee el resto del archivo
+# if __name__ == '__main__':
+#     app.run(debug=True, port=5000)
 
 """Punto de entrada de la API REST Flask.
 
@@ -44,6 +47,7 @@ from rest import db
 def create_app():
     app = Flask(__name__)
     app.config["JSON_SORT_KEYS"] = False
+    CORS(app)  # CAMBIO: CORS para permitir solicitudes desde cualquier origen (Cross-Origin Resource Sharing)
 
     # Importar aquí evita ciclos de importación y registra todos los modelos.
     from rest.modelos.AdministradorModel import Administrador  # noqa: F401
@@ -57,8 +61,9 @@ def create_app():
     from rest.routes.DetallePedidoRoutes import bp as detalle_pedido_bp
     from rest.routes.PagoRoutes import bp as pago_bp
     from rest.routes.PedidoMesaRoutes import bp as pedido_mesa_bp
+    from rest.routes.UsuarioRoutes import bp as usuario_bp  # CAMBIO: ruta de usuarios
 
-    for blueprint in (administrador_bp, cocinero_bp, detalle_pedido_bp, pago_bp, pedido_mesa_bp):
+    for blueprint in (administrador_bp, cocinero_bp, detalle_pedido_bp, pago_bp, pedido_mesa_bp, usuario_bp):
         app.register_blueprint(blueprint)
 
     @app.get("/")
