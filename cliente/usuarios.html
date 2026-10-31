@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de Usuarios</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/app-usuarios.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+        
+        <!-- 1. MENÚ LATERAL IZQUIERDO -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu">
+                <li><a href="crear-pedido.html">Crear pedido</a></li>
+                <li><a href="productos-pedido.html">Gestionar productos del pedido</a></li>
+                <li><a href="observaciones.html">Registrar observaciones</a></li>
+                <li><a href="estado-pedido.html">Consultar estado del pedido</a></li>
+                <li><a href="entregar-pedido.html">Entregar pedido</a></li>
+                <li><a href="cancelar-pedido.html">Cancelar pedido</a></li>
+                <li><a href="pedidos-pendientes.html">Detalle de pedidos pendientes</a></li>
+                <li><a href="estado-preparacion.html">Actualizar estado de preparación</a></li>
+                <li><a href="catalogos.html">Gestionar categorías del menú y mesas</a></li>
+                <li><a href="productos.html">Gestionar productos del menú</a></li>
+                <li><a href="disponibilidad.html">Gestionar disponibilidad de productos</a></li>
+                <li><a href="usuarios.html">Gestionar usuarios</a></li>
+                <li><a href="reportes.html">Consultar reportes administrativos</a></li>
+                <li><a href="trazabilidad.html">Consultar trazabilidad del pedido</a></li>
+                <li><a href="index.html">Pagina principal</a></li>
+            </ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Gestionar usuarios</h1>
+                <p class="subtitulo">Administra las cuentas del equipo, sus roles y el acceso al sistema.</p>
+            </header>
+
+            <!-- Barra de herramientas (Buscador y Botón Crear) -->
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="buscar">Buscar usuario</label>
+                    <input type="text" id="buscar" placeholder="Nombre">
+                </div>
+                <button id="btn-crear-usuario" class="btn-primario">Crear usuario</button>
+            </div>
+
+            <!-- Tabla de Usuarios -->
+            <div class="contenedor-tabla">
+                <table id="tabla-usuarios">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí UsuarioView.js inyectará las filas (<tr>) dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- 3. PANEL LATERAL OCULTO (Off-canvas para Crear/Editar) -->
+        <aside id="panel-lateral-formulario" class="panel-lateral">
+            <div class="cabecera-panel">
+                <h2 id="titulo-panel">Crear usuario</h2>
+            </div>
+            
+            <form id="form-usuario">
+                <div class="grupo-input">
+                    <label for="input-nombre">Nombre completo *</label>
+                    <input type="text" id="input-nombre" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="input-credenciales">Credenciales *</label>
+                    <input type="password" id="input-credenciales" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="select-rol">Rol *</label>
+                    <select id="select-rol" required>
+                        <option value="Mesero">Mesero</option>
+                        <option value="Cocinero">Cocinero</option>
+                        <option value="Repartidor">Repartidor</option>
+                        <option value="Cajero">Cajero</option>
+                        <option value="Administrador">Administrador</option>
+                    </select>
+                </div>
+
+                <!-- Campo dinámico: Zona asignada / Placa / Estación -->
+                <div class="grupo-input">
+                    <label id="label-dinamico" for="input-dinamico">Zona asignada</label>
+                    <input type="text" id="input-dinamico">
+                </div>
+
+                <div class="grupo-input toggle-estado">
+                    <label for="select-estado">Estado activo</label>
+                    <select id="select-estado">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                    <!-- Nota: En CSS puedes estilizar este select para que parezca el switch de tu diseño -->
+                </div>
+
+                <div class="acciones-formulario">
+                    <button type="submit" id="btn-guardar" class="btn-primario">Guardar cambios</button>
+                    <div class="acciones-inferiores">
+                        <button type="button" id="btn-cancelar" class="btn-texto">Descartar</button>
+                        <button type="button" id="btn-eliminar" class="btn-texto btn-peligro oculto">Eliminar usuario</button>
+                    </div>
+                </div>
+            </form>
+        </aside>
+
+    </div>
+    </body>
+</html>

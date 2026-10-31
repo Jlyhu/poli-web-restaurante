@@ -45,11 +45,11 @@ def insertProducto():
         idproducto = siguiente_id(Producto.idProducto)
 
     p = Producto(idProducto=idproducto,
-                 nombre=datos.get('nombre'),
-                 descripcion=datos.get('descripcion'),
-                 precio=datos.get('precio'),
-                 cantidad_disponible=datos.get('cantidad_disponible', 0),
-                 Categoria_id_categoria=datos.get('Categoria_id_categoria'))
+                nombre=datos.get('nombre'),
+                descripcion=datos.get('descripcion'),
+                precio=datos.get('precio'),
+                cantidad_disponible=datos.get('cantidad_disponible', 0),
+                Categoria_id_categoria=datos.get('Categoria_id_categoria'))
     db.session.add(p)
 
     error = guardar_cambios()
