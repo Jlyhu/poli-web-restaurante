@@ -1,0 +1,671 @@
+{
+  "info": {
+    "name": "PoliRestaurante REST",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Administrador",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getAdministradores",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getAdministradores"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insertAdministrador",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insertAdministrador"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_administrador\": 9001,\n  \"Usuario_idUsuario\": 9001\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Consultar uno",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getAdministrador/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getAdministrador",
+                "9001"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/updateAdministrador/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "updateAdministrador",
+                "9001"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Usuario_idUsuario\": 9002\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/deleteAdministrador/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deleteAdministrador",
+                "9001"
+              ]
+            }
+          }
+        },
+        {
+          "name": "ERROR: falta un campo (400)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insertAdministrador",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insertAdministrador"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_administrador\": 9100\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: llave foránea inexistente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insertAdministrador",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insertAdministrador"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_administrador\": 9100,\n  \"Usuario_idUsuario\": 99999\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "ERROR: no existe (404)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getAdministrador/99999",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getAdministrador",
+                "99999"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cocinero",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getCocineros",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getCocineros"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insertCocinero",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insertCocinero"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_cocinero\": 9001,\n  \"estacion\": \"Parrilla\",\n  \"Usuario_idUsuario\": 9001\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Consultar uno",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getCocinero/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getCocinero",
+                "9001"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/updateCocinero/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "updateCocinero",
+                "9001"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estacion\": \"Postres\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/deleteCocinero/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deleteCocinero",
+                "9001"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "PedidoMesa",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getPedidosMesa",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getPedidosMesa"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insertPedidoMesa",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insertPedidoMesa"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_pedido_mesa\": 9001,\n  \"Mesa_id_mesa\": 9001,\n  \"Pedido_id_pedido\": 9001\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Consultar uno",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getPedidoMesa/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getPedidoMesa",
+                "9001"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/updatePedidoMesa/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "updatePedidoMesa",
+                "9001"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Mesa_id_mesa\": 9002\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/deletePedidoMesa/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deletePedidoMesa",
+                "9001"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "DetallePedido",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getDetallesPedido",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getDetallesPedido"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insertDetallePedido",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insertDetallePedido"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_detalle_pedido\": 9001,\n  \"cantidad\": 2,\n  \"notas\": \"Sin cebolla\",\n  \"Pedido_id_pedido\": 9001,\n  \"Producto_idProducto\": 9001\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Consultar uno",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getDetallePedido/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getDetallePedido",
+                "9001"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/updateDetallePedido/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "updateDetallePedido",
+                "9001"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cantidad\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/deleteDetallePedido/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deleteDetallePedido",
+                "9001"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pago",
+      "item": [
+        {
+          "name": "Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getPagos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getPagos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/insertPago",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "insertPago"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_pago\": 9001,\n  \"monto\": 25000,\n  \"metodo_pago\": \"efectivo\",\n  \"fecha_pago\": \"2026-10-13T12:30:00\",\n  \"Pedido_id_pedido\": 9001,\n  \"Caja_id_caja\": 9001\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Consultar uno",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/getPago/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "getPago",
+                "9001"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/updatePago/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "updatePago",
+                "9001"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto\": 30000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/deletePago/9001",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deletePago",
+                "9001"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ]
+}
