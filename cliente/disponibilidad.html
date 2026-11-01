@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de Disponibilidad</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/app-disponibilidad.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <!-- 1. MENÚ LATERAL IZQUIERDO -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu">
+                <li><a href="crear-pedido.html">Crear pedido</a></li>
+                <li><a href="productos-pedido.html">Gestionar productos del pedido</a></li>
+                <li><a href="observaciones.html">Registrar observaciones</a></li>
+                <li><a href="estado-pedido.html">Consultar estado del pedido</a></li>
+                <li><a href="entregar-pedido.html">Entregar pedido</a></li>
+                <li><a href="cancelar-pedido.html">Cancelar pedido</a></li>
+                <li><a href="pedidos-pendientes.html">Detalle de pedidos pendientes</a></li>
+                <li><a href="estado-preparacion.html">Actualizar estado de preparación</a></li>
+                <li><a href="catalogos.html">Gestionar categorías del menú y mesas</a></li>
+                <li><a href="productos.html">Gestionar productos del menú</a></li>
+                <li><a href="disponibilidad.html">Gestionar disponibilidad de productos</a></li>
+                <li><a href="usuarios.html">Gestionar usuarios</a></li>
+                <li><a href="reportes.html">Consultar reportes administrativos</a></li>
+                <li><a href="trazabilidad.html">Consultar trazabilidad del pedido</a></li>
+                <li><a href="index.html">Pagina principal</a></li>
+            </ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Gestionar Disponibilidad</h1>
+            </header>
+
+            <!-- Barra de herramientas (Buscador y Filtro) -->
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="buscar">Buscar producto</label>
+                    <input type="text" id="buscar" placeholder="Nombre">
+                </div>
+                <div class="buscador">
+                    <label for="select-filtro">Mostrar</label>
+                    <select id="select-filtro">
+                        <option value="todos">Todos</option>
+                        <option value="disponibles">Solo disponibles</option>
+                        <option value="agotados">Solo agotados</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tabla de Disponibilidad -->
+            <div class="contenedor-tabla">
+                <table id="tabla-disponibilidad">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Estado</th>
+                            <th>Cantidad</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí DisponibilidadView.js inyectará las filas (<tr>) dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+    </div>
+    </body>
+</html>
