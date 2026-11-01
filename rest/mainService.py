@@ -62,8 +62,12 @@ def create_app():
     from rest.routes.PagoRoutes import bp as pago_bp
     from rest.routes.PedidoMesaRoutes import bp as pedido_mesa_bp
     from rest.routes.UsuarioRoutes import bp as usuario_bp  # CAMBIO: ruta de usuarios
-
-    for blueprint in (administrador_bp, cocinero_bp, detalle_pedido_bp, pago_bp, pedido_mesa_bp, usuario_bp):
+    
+    from rest.routes.CategoriaRoutes import bp as categoria_bp
+    from rest.routes.ProductoRoutes import bp as producto_bp
+    from rest.routes.MesaRoutes import bp as mesa_bp
+    
+    for blueprint in (administrador_bp, cocinero_bp, detalle_pedido_bp, pago_bp, pedido_mesa_bp, usuario_bp, categoria_bp, producto_bp, mesa_bp):
         app.register_blueprint(blueprint)
 
     @app.get("/")

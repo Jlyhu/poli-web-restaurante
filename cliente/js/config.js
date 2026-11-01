@@ -26,12 +26,38 @@ export const ENDPOINTS = {
     activarUsuario: '/activarUsuario',
     eliminarUsuario: '/deleteUsuario',
 
+    // --- LOGIN ---
+    iniciarSesion: '/loginUsuario',
+
     // --- CLIENTES ---
     listarClientes: '/getClientes',
     obtenerCliente: '/getCliente',
     insertarCliente: '/insertCliente',
+    actualizarCliente: '/updateCliente',
+    eliminarCliente: '/deleteCliente',
     
-    // --- PEDIDOS ---
-    listarPedidos: '/getPedidos',
+    // --- CATEGORÍAS ---
+    listarCategorias: '/getCategorias',
+    obtenerCategoria: '/getCategoria',
+    insertarCategoria: '/insertCategoria',
+    actualizarCategoria: '/updateCategoria',
+    eliminarCategoria: '/deleteCategoria',
+
+    // --- PRODUCTOS ---
+    listarProductos: '/getProductos',
+    listarProductosDisponibles: '/getProductosDisponibles',
+    insertarProducto: '/insertProducto',
+    actualizarProducto: '/updateProducto',
+    agotarProducto: '/agotarProducto',
+    eliminarProducto: '/deleteProducto',
+
+    // --- MESAS ---
+    listarMesas: '/getMesas',
+    obtenerMesa: '/getMesa',
+    insertarMesa: '/insertMesa',
+    actualizarMesa: '/updateMesa',
+    eliminarMesa: '/deleteMesa',
+
+
     // ... y así sucesivamente
 };

@@ -223,3 +223,42 @@ def deleteUsuario(idusuario):
     if error:
         return error
     return jsonify({'mensaje': f'Usuario {idusuario} eliminado'})
+
+# ---------- INICIAR SESIÓN ----------
+@bp.route('/loginUsuario', methods=['POST'])
+def loginUsuario():
+    datos = request.get_json()
+    
+    if not datos:
+        return jsonify({"error": "No se enviaron datos"}), 400
+
+    # Estas claves ('nombre' y 'contrasena') deben ser las mismas que envías desde el fetch en JavaScript
+    nombre_usuario = datos.get('nombre') 
+    contrasena_ingresada = datos.get('credenciales')
+
+    if not nombre_usuario or not contrasena_ingresada:
+        return jsonify({"error": "Faltan credenciales"}), 400
+
+    try:
+        # Busca al usuario en la base de datos por su nombre
+        u = db.session.query(Usuario).filter(Usuario.nombre == nombre_usuario).first()
+        
+        # Verifica si existe y si las credenciales coinciden
+        if u and u.credenciales == contrasena_ingresada:
+            
+            # Obtiene el diccionario del usuario (toDict oculta la contraseña automáticamente)
+            datos_usuario = u.toDict()
+            
+            # Opcional: Agregar el rol al usuario que inicia sesión (usando tu función existente)
+            rol_actual, _ = _fila_rol(u.idUsuario)
+            datos_usuario['rol'] = rol_actual
+            
+            return jsonify({
+                "mensaje": "Inicio de sesión exitoso", 
+                "usuario": datos_usuario 
+            }), 200
+        else:
+            return jsonify({"error": "Usuario o contraseña incorrectos"}), 401
+            
+    except Exception as e:
+        return jsonify({"error": f"Error interno: {str(e)}"}), 500

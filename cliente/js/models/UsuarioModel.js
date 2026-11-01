@@ -127,5 +127,18 @@ export class UsuarioModel {
     */
     eliminar(idUsuario) {
         return this.#peticion(`${ENDPOINTS.eliminarUsuario}/${idUsuario}`, 'DELETE');
+    
+    }
+
+        /**
+    * Inicia sesión.  →  POST /loginUsuario
+    * Devuelve lo que responde el backend (nombre y roles).
+    * Si las credenciales son malas, #peticion lanza un Error con el mensaje del servidor.
+    * @param {string} nombre
+    * @param {string} credenciales
+    * @returns {Promise<Object>}
+    */
+    iniciarSesion(nombre, credenciales) {
+        return this.#peticion(ENDPOINTS.iniciarSesion, 'POST', { nombre, credenciales });
     }
 }
