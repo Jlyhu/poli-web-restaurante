@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de Categorías y Mesas</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/app-catalogos.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+        
+        <!-- 1. MENÚ LATERAL IZQUIERDO -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu">
+                <li><a href="crear-pedido.html">Crear pedido</a></li>
+                <li><a href="productos-pedido.html">Gestionar productos del pedido</a></li>
+                <li><a href="observaciones.html">Registrar observaciones</a></li>
+                <li><a href="estado-pedido.html">Consultar estado del pedido</a></li>
+                <li><a href="entregar-pedido.html">Entregar pedido</a></li>
+                <li><a href="cancelar-pedido.html">Cancelar pedido</a></li>
+                <li><a href="pedidos-pendientes.html">Detalle de pedidos pendientes</a></li>
+                <li><a href="estado-preparacion.html">Actualizar estado de preparación</a></li>
+                <li><a href="catalogos.html">Gestionar categorías del menú y mesas</a></li>
+                <li><a href="productos.html">Gestionar productos del menú</a></li>
+                <li><a href="disponibilidad.html">Gestionar disponibilidad de productos</a></li>
+                <li><a href="usuarios.html">Gestionar usuarios</a></li>
+                <li><a href="reportes.html">Consultar reportes administrativos</a></li>
+                <li><a href="trazabilidad.html">Consultar trazabilidad del pedido</a></li>
+                <li><a href="index.html">Pagina principal</a></li>
+            </ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Gestionar Categorías y Mesas</h1>
+            </header>
+
+            <!-- ===== SECCIÓN CATEGORÍAS ===== -->
+            <h2 class="titulo-seccion">Categorías del menú</h2>
+
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="buscar-categoria">Buscar categoría</label>
+                    <input type="text" id="buscar-categoria" placeholder="Nombre">
+                </div>
+                <button id="btn-crear-categoria" class="btn-primario">Crear categoría</button>
+            </div>
+
+            <div class="contenedor-tabla">
+                <table id="tabla-categorias">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí la Vista inyectará las filas (<tr>) de categorías -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ===== SECCIÓN MESAS ===== -->
+            <h2 class="titulo-seccion">Mesas del restaurante</h2>
+
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="buscar-mesa">Buscar mesa</label>
+                    <input type="text" id="buscar-mesa" placeholder="Número">
+                </div>
+                <button id="btn-crear-mesa" class="btn-primario">Crear mesa</button>
+            </div>
+
+            <div class="contenedor-tabla">
+                <table id="tabla-mesas">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí la Vista inyectará las filas (<tr>) de mesas -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+        <!-- 3. PANEL LATERAL OCULTO (Off-canvas para Crear/Editar categoría o mesa) -->
+        <aside id="panel-lateral-formulario" class="panel-lateral">
+            <div class="cabecera-panel">
+                <h2 id="titulo-panel">Crear categoría</h2>
+            </div>
+
+            <!-- Formulario de CATEGORÍA -->
+            <form id="form-categoria">
+                <div class="grupo-input">
+                    <label for="input-nombre-categoria">Nombre *</label>
+                    <input type="text" id="input-nombre-categoria" maxlength="100" required>
+                </div>
+
+                <div class="acciones-formulario">
+                    <button type="submit" id="btn-guardar-categoria" class="btn-primario">Crear</button>
+                    <div class="acciones-inferiores">
+                        <button type="button" id="btn-cancelar-categoria" class="btn-texto">Descartar</button>
+                        <button type="button" id="btn-eliminar-categoria" class="btn-texto btn-peligro oculto">Eliminar categoría</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Formulario de MESA (oculto hasta que se cree o edite una mesa) -->
+            <form id="form-mesa" class="oculto">
+                <div class="grupo-input">
+                    <label for="input-numero-mesa">Número de mesa *</label>
+                    <input type="number" id="input-numero-mesa" min="1" step="1" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="select-estado-mesa">Estado</label>
+                    <select id="select-estado-mesa">
+                        <option value="Disponible">Disponible</option>
+                        <option value="Ocupada">Ocupada</option>
+                    </select>
+                </div>
+
+                <div class="acciones-formulario">
+                    <button type="submit" id="btn-guardar-mesa" class="btn-primario">Crear</button>
+                    <div class="acciones-inferiores">
+                        <button type="button" id="btn-cancelar-mesa" class="btn-texto">Descartar</button>
+                        <button type="button" id="btn-eliminar-mesa" class="btn-texto btn-peligro oculto">Eliminar mesa</button>
+                    </div>
+                </div>
+            </form>
+        </aside>
+
+    </div>
+    </body>
+</html>
