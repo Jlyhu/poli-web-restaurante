@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ver Mesas</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-mesas.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu"></ul>
+        </nav>
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Ver mesas</h1>
+                <p class="subtitulo">Una mesa está ocupada mientras tenga un pedido pendiente, en preparación o listo</p>
+            </header>
+            <div class="barra-herramientas">
+                <p id="contador" class="contador"></p>
+                <button id="btn-actualizar" class="btn-secundario" type="button">Actualizar</button>
+            </div>
+            <div id="grilla-mesas" class="grilla-mesas"></div>
+        </main>
+        </div>
+    </body>
+</html>

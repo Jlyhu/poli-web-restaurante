@@ -18,13 +18,15 @@ export const MENU_POR_ROL = {
     { texto: 'Gestionar mesas',                  pagina: 'catalogos.html' },
     { texto: 'Consultar reservas',               pagina: null },
     { texto: 'Reportes',                         pagina: 'reportes.html' },            // HU-14
-    { texto: 'Consultar pedidos',                pagina: null },
+    { texto: 'Consultar pedidos (trazabilidad)', pagina: 'trazabilidad.html' },      // HU-15
   ],
   Mesero: [
     { texto: 'Crear pedido',                         pagina: 'crear-pedido.html' },     // HU-02
-    { texto: 'Ver mesas',                            pagina: null },
+    { texto: 'Ver mesas',                            pagina: 'mesas.html' },
     { texto: 'Agregar/modificar detalles del pedido', pagina: 'productos-pedido.html' }, // HU-03
-    { texto: 'Consultar estado del pedido',          pagina: null },
+    { texto: 'Consultar estado del pedido',          pagina: 'estado-pedido.html' },   // HU-05
+    { texto: 'Entregar pedido',                      pagina: 'estado-pedido.html' },   // HU-06
+    { texto: 'Cancelar pedido',                      pagina: 'estado-pedido.html' },   // HU-07
     { texto: 'Gestionar reservas',                   pagina: null },
   ],
   Cocinero: [
@@ -33,14 +35,14 @@ export const MENU_POR_ROL = {
     { texto: 'Cambiar estado del pedido', pagina: 'estado-preparacion.html' },         // HU-09
   ],
   Cajero: [
-    { texto: 'Ver pedidos',    pagina: null },
-    { texto: 'Registrar pago', pagina: null },
-    { texto: 'Gestionar caja', pagina: null },
+    { texto: 'Ver pedidos',    pagina: 'pagos.html' },
+    { texto: 'Registrar pago', pagina: 'pagos.html' },
+    { texto: 'Gestionar caja', pagina: 'caja.html' },
   ],
   Repartidor: [
-    { texto: 'Ver pedidos asignados',        pagina: null },
-    { texto: 'Ver datos de entrega',         pagina: null },
-    { texto: 'Actualizar estado de entrega', pagina: null },
+    { texto: 'Ver pedidos asignados',        pagina: 'entregas.html' },
+    { texto: 'Ver datos de entrega',         pagina: 'entregas.html' },
+    { texto: 'Actualizar estado de entrega', pagina: 'entregas.html' },
   ],
 };
 

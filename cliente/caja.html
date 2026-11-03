@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestionar Caja</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-caja.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu"></ul>
+        </nav>
+
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Gestionar caja</h1>
+                <p class="subtitulo">Abra la caja al iniciar el turno y ciérrela al terminar. Entidades: Cajero, Caja, Pago</p>
+            </header>
+
+            <!-- Caja cerrada: formulario para abrir -->
+            <section id="seccion-abrir" class="tarjeta-formulario oculto">
+                <h2 class="titulo-seccion">No tiene una caja abierta</h2>
+                <form id="form-abrir" class="formulario-linea">
+                    <div class="grupo-input">
+                        <label for="input-monto-inicial">Monto inicial (base) *</label>
+                        <input type="number" id="input-monto-inicial" min="0" step="100" required placeholder="Ej. 200000">
+                    </div>
+                    <button type="submit" class="btn-primario">Abrir caja</button>
+                </form>
+            </section>
+
+            <!-- Caja abierta: resumen, pagos y cierre -->
+            <section id="seccion-abierta" class="oculto">
+                <p id="texto-caja" class="contador"></p>
+                <div class="tarjetas-resumen" id="resumen-caja"></div>
+
+                <h2 class="titulo-seccion">Pagos registrados en esta caja</h2>
+                <div class="contenedor-tabla">
+                    <table id="tabla-pagos">
+                        <thead><tr><th>Pago</th><th>Pedido</th><th>Método</th><th>Fecha</th><th>Monto</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="tarjeta-formulario">
+                    <h2 class="titulo-seccion">Cerrar caja</h2>
+                    <form id="form-cerrar" class="formulario-linea">
+                        <div class="grupo-input">
+                            <label for="input-monto-final">Dinero contado al cierre *</label>
+                            <input type="number" id="input-monto-final" min="0" step="100" required>
+                        </div>
+                        <button type="submit" class="btn-primario">Cerrar caja</button>
+                    </form>
+                    <p id="diferencia" class="nota-pie"></p>
+                </div>
+            </section>
+        </main>
+        </div>
+    </body>
+</html>

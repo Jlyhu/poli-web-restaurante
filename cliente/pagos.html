@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pedidos y Pagos</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-pagos.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu"></ul>
+        </nav>
+
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Ver pedidos y registrar pagos</h1>
+                <p class="subtitulo">Los pedidos entregados quedan por cobrar. El valor lo calcula el sistema con el detalle del pedido.</p>
+            </header>
+
+            <p id="aviso-caja" class="aviso oculto">No tiene una caja abierta. <a href="caja.html">Abra la caja</a> para poder cobrar.</p>
+
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="select-metodo">Método de pago</label>
+                    <select id="select-metodo">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta">Tarjeta</option>
+                        <option value="Transferencia">Transferencia</option>
+                    </select>
+                </div>
+                <button id="btn-actualizar" class="btn-secundario" type="button">Actualizar</button>
+            </div>
+
+            <h2 class="titulo-seccion">Por cobrar</h2>
+            <div class="contenedor-tabla">
+                <table id="tabla-por-cobrar">
+                    <thead><tr><th>Pedido</th><th>Destino</th><th>Entregado</th><th>Total</th><th>Acción</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <h2 class="titulo-seccion">Pedidos en curso</h2>
+            <div class="contenedor-tabla">
+                <table id="tabla-en-curso">
+                    <thead><tr><th>Pedido</th><th>Destino</th><th>Estado</th><th>Creado</th><th>Total</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <h2 class="titulo-seccion">Pagados</h2>
+            <div class="contenedor-tabla">
+                <table id="tabla-pagados">
+                    <thead><tr><th>Pedido</th><th>Destino</th><th>Método</th><th>Fecha de pago</th><th>Total</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </main>
+        </div>
+    </body>
+</html>
