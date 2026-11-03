@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "PoliRestaurante - Daniela (Categoria, Mesero, Repartidor, Cajero, Caja, Pedido)",
+    "name": "PoliRestaurante - Daniela (DAOs + HU-05, 06, 07, 15, Cajero y Repartidor)",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
@@ -828,6 +828,371 @@
               "path": [
                 "deletePedido",
                 "1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "HU-05/06/07 Seguimiento (Mesero)",
+      "item": [
+        {
+          "name": "Pedidos activos con todos sus datos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidosDetallados?activos=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidosDetallados"
+              ],
+              "query": [
+                {
+                  "key": "activos",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pedidos de un mesero",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidosDetallados?mesero=9101",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidosDetallados"
+              ],
+              "query": [
+                {
+                  "key": "mesero",
+                  "value": "9101"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "HU-05 Estado de un pedido",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getEstadoPedido/9201",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getEstadoPedido",
+                "9201"
+              ]
+            }
+          }
+        },
+        {
+          "name": "HU-06 Entregar pedido (solo si está LISTO)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/entregarPedido/9201",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "entregarPedido",
+                "9201"
+              ]
+            }
+          }
+        },
+        {
+          "name": "HU-06 Entregar pedido PENDIENTE (debe dar 409)",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/entregarPedido/9202",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "entregarPedido",
+                "9202"
+              ]
+            }
+          }
+        },
+        {
+          "name": "HU-07 Cancelar pedido",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/cancelarPedido/9202",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cancelarPedido",
+                "9202"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "HU-15 Trazabilidad (Administrador)",
+      "item": [
+        {
+          "name": "Todos los pedidos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidosDetallados",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidosDetallados"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pedidos a domicilio",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidosDetallados?tipo=domicilio",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidosDetallados"
+              ],
+              "query": [
+                {
+                  "key": "tipo",
+                  "value": "domicilio"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Trazabilidad de un pedido",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getTrazabilidadPedido/9203",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getTrazabilidadPedido",
+                "9203"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cajero (caja y pagos)",
+      "item": [
+        {
+          "name": "Caja abierta del cajero",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getCajaAbierta?cajero=9101",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getCajaAbierta"
+              ],
+              "query": [
+                {
+                  "key": "cajero",
+                  "value": "9101"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abrir caja (409 si ya tiene una abierta)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/abrirCaja",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "abrirCaja"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Cajero_id_cajero\": 9101,\n  \"monto_inicial\": 200000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Pedidos entregados sin pagar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidosDetallados?estado=ENTREGADO&sinPago=1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidosDetallados"
+              ],
+              "query": [
+                {
+                  "key": "estado",
+                  "value": "ENTREGADO"
+                },
+                {
+                  "key": "sinPago",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Registrar pago de un pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/registrarPagoPedido",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "registrarPagoPedido"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Pedido_id_pedido\": 9203,\n  \"Cajero_id_cajero\": 9101,\n  \"metodo_pago\": \"Efectivo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Cerrar caja",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cerrarCaja/9101",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cerrarCaja",
+                "9101"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"monto_final\": 450000\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Repartidor (entregas)",
+      "item": [
+        {
+          "name": "Pedidos asignados al repartidor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/getPedidosDetallados?repartidor=9101",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "getPedidosDetallados"
+              ],
+              "query": [
+                {
+                  "key": "repartidor",
+                  "value": "9101"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Marcar domicilio entregado",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/entregarPedido/9204",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "entregarPedido",
+                "9204"
               ]
             }
           }
