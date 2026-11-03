@@ -111,7 +111,7 @@ def cambiarEstadoPedido(idpedido):
         return jsonify(err.messages), 400
 
     nuevo = datos['estado']
-    permitidos = TRANSICIONES.get(x.estado, [])
+    permitidos = TRANSICIONES.get((x.estado or '').upper(), [])
     if nuevo not in permitidos:
         return jsonify({'error': f'No se puede pasar de {x.estado} a {nuevo}',
                         'estados_permitidos': permitidos}), 409
