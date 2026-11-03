@@ -7,13 +7,16 @@ Ejecutar desde la raíz del repo (la carpeta que tiene rest, orm y DataAccess):
 
 Se puede correr varias veces: el SQL usa INSERT IGNORE, así que no duplica nada.
 """
+import sys
 from pathlib import Path
 
 from sqlalchemy import text
 
 from rest import engine
 
-RUTA_SQL = Path(__file__).parent / "rest" / "datos_prueba.sql"
+# Por defecto carga rest/datos_prueba.sql; con un argumento carga otro archivo:
+#     python cargar_datos_prueba.py rest/datos_demo_hu.sql
+RUTA_SQL = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent / "rest" / "datos_prueba.sql"
 
 
 def leer_sentencias(ruta):

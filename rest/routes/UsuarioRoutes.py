@@ -224,41 +224,28 @@ def deleteUsuario(idusuario):
         return error
     return jsonify({'mensaje': f'Usuario {idusuario} eliminado'})
 
-# ---------- INICIAR SESIÓN ----------
+
+# ---------- INICIAR SESIÓN (HU-01) ----------
 @bp.route('/loginUsuario', methods=['POST'])
 def loginUsuario():
-    datos = request.get_json()
-    
-    if not datos:
-        return jsonify({"error": "No se enviaron datos"}), 400
+    datos = request.get_json(silent=True) or {}
+    nombre = (datos.get('nombre') or '').strip()
+    credenciales = datos.get('credenciales') or ''
+    if not nombre or not credenciales:
+        return jsonify({'error': 'El nombre y la contraseña son obligatorios.'}), 400
 
-    # Estas claves ('nombre' y 'contrasena') deben ser las mismas que envías desde el fetch en JavaScript
-    nombre_usuario = datos.get('nombre') 
-    contrasena_ingresada = datos.get('credenciales')
+    u = db.session.query(Usuario).filter(Usuario.nombre == nombre).first()
+    if u is None or u.credenciales != credenciales:
+        return jsonify({'error': 'Usuario o contraseña incorrectos.'}), 401
+    if u.estado != 'activo':
+        return jsonify({'error': 'El usuario está inactivo. Contacte al administrador.'}), 403
 
-    if not nombre_usuario or not contrasena_ingresada:
-        return jsonify({"error": "Faltan credenciales"}), 400
+    rol, fila = _fila_rol(u.idUsuario)
+    if rol is None:
+        return jsonify({'error': 'El usuario no tiene un rol asignado.'}), 403
 
-    try:
-        # Busca al usuario en la base de datos por su nombre
-        u = db.session.query(Usuario).filter(Usuario.nombre == nombre_usuario).first()
-        
-        # Verifica si existe y si las credenciales coinciden
-        if u and u.credenciales == contrasena_ingresada:
-            
-            # Obtiene el diccionario del usuario (toDict oculta la contraseña automáticamente)
-            datos_usuario = u.toDict()
-            
-            # Opcional: Agregar el rol al usuario que inicia sesión (usando tu función existente)
-            rol_actual, _ = _fila_rol(u.idUsuario)
-            datos_usuario['rol'] = rol_actual
-            
-            return jsonify({
-                "mensaje": "Inicio de sesión exitoso", 
-                "usuario": datos_usuario 
-            }), 200
-        else:
-            return jsonify({"error": "Usuario o contraseña incorrectos"}), 401
-            
-    except Exception as e:
-        return jsonify({"error": f"Error interno: {str(e)}"}), 500
+    # id propio del rol (id_cocinero, id_administrador, ...): lo usan HU-09 y HU-14
+    id_rol = getattr(fila, ROLES[rol][1])
+    return jsonify({'mensaje': 'Inicio de sesión exitoso',
+                    'idUsuario': u.idUsuario, 'nombre': u.nombre,
+                    'rol': rol, 'idRol': id_rol}), 200

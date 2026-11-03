@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reportes Administrativos</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-reportes.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <!-- 1. MENÚ LATERAL IZQUIERDO -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu">
+            </ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Reportes Administrativos</h1>
+            </header>
+
+            <p class="subtitulo">Ventas de pedidos entregados y tiempos de atención.</p>
+
+            <div class="filtros">
+                <div class="grupo-input">
+                    <label for="select-administrador">Administrador</label>
+                    <select id="select-administrador">
+                        <option value="">Seleccione el administrador</option>
+                    </select>
+                </div>
+                <div class="grupo-input">
+                    <label for="fecha-desde">Desde</label>
+                    <input type="date" id="fecha-desde">
+                </div>
+                <div class="grupo-input">
+                    <label for="fecha-hasta">Hasta</label>
+                    <input type="date" id="fecha-hasta">
+                </div>
+                <button id="btn-consultar" class="btn-primario" type="button">Consultar</button>
+                <button id="btn-limpiar" class="btn-secundario" type="button">Limpiar</button>
+            </div>
+
+            <div id="resultados" class="oculto">
+
+                <h2 class="titulo-seccion">Reporte de ventas</h2>
+                <div class="tarjetas-resumen">
+                    <div class="tarjeta-dato"><span>Total vendido</span><strong id="kpi-total">—</strong></div>
+                    <div class="tarjeta-dato"><span>Pagos registrados</span><strong id="kpi-pagos">—</strong></div>
+                </div>
+
+                <div class="contenedor-tabla">
+                    <table id="tabla-metodos">
+                        <thead><tr><th>Método de pago</th><th>Total</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <br>
+                <div class="contenedor-tabla">
+                    <table id="tabla-pagos">
+                        <thead><tr><th>Pago</th><th>Pedido</th><th>Método</th><th>Fecha</th><th>Monto</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <h2 class="titulo-seccion">Tiempos de preparación</h2>
+                <div class="tarjetas-resumen">
+                    <div class="tarjeta-dato"><span>Tiempo promedio</span><strong id="kpi-promedio">—</strong></div>
+                    <div class="tarjeta-dato"><span>Pedidos medidos</span><strong id="kpi-pedidos">—</strong></div>
+                </div>
+
+                <div class="contenedor-tabla">
+                    <table id="tabla-tiempos">
+                        <thead><tr><th>Pedido</th><th>Estado</th><th>Creado</th><th>Última actualización</th><th>Tiempo</th></tr></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <p class="nota-pie">El tiempo se mide entre la creación del pedido y su última actualización (cuando quedó listo o entregado). Para medir cada estado por separado hace falta el historial de estados.</p>
+            </div>
+        </main>
+
+    </div>
+    </body>
+</html>

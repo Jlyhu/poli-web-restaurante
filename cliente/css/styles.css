@@ -346,3 +346,123 @@ input[type="number"] {
     flex-direction: column; /* Apila los enlaces de acceso hacia abajo */
     gap: 12px; /* Espacio vertical entre cada enlace de la lista */
 }
+
+/* ============================================================
+   Pedidos y cocina: HU-02, HU-03/04, HU-08, HU-09 y HU-14
+   ============================================================ */
+
+/* Estados de pedido (se suman a .badge-verde y .badge-gris) */
+.badge-amarillo { background: #fdf1d0; color: #8a6500; }
+.badge-azul     { background: #dbeefc; color: #1b5e91; }
+.badge-rojo     { background: #fadbd8; color: #a03226; }
+
+/* Campos de fecha con el mismo estilo que los de texto */
+input[type="date"] {
+  padding: 10px 12px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  font: inherit;
+  color: var(--color-texto);
+  background: #fff;
+}
+input[type="date"]:focus { outline: 2px solid var(--color-primario); outline-offset: 0; }
+
+/* Aviso fijo dentro de la página */
+.aviso {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid #f0d58a;
+  border-radius: 8px;
+  background: #fff6dd;
+  color: #7a5b00;
+  font-size: 14px;
+}
+
+/* Tarjeta blanca para formularios en línea */
+.tarjeta-formulario {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+}
+
+.formulario-linea {
+  display: grid;
+  grid-template-columns: 2fr 110px 3fr auto;
+  gap: 16px;
+  align-items: end;
+}
+.formulario-linea .grupo-input { margin-bottom: 0; }
+.formulario-linea input { width: 100%; }
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+.filtros .grupo-input { margin-bottom: 0; }
+
+.titulo-seccion { margin: 28px 0 12px; font-size: 20px; }
+.nota-pie { margin: 8px 0 0; font-size: 13px; color: #5b6b80; }
+.contador { margin: 0 0 12px; font-size: 14px; color: #5b6b80; }
+
+/* Observación para cocina: resaltada para que no se pase por alto */
+.nota-observacion {
+  display: inline-block;
+  padding: 2px 8px;
+  border-left: 3px solid #f0b429;
+  border-radius: 4px;
+  background: #fff6dd;
+  font-size: 13px;
+}
+
+.total-pedido {
+  margin: 14px 4px 0;
+  text-align: right;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Tarjetas de resumen (reportes) */
+.tarjetas-resumen { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+.tarjeta-dato {
+  flex: 1;
+  min-width: 180px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+}
+.tarjeta-dato span { display: block; font-size: 13px; color: #5b6b80; }
+.tarjeta-dato strong { font-size: 24px; color: var(--color-primario-oscuro); }
+
+/* El panel lateral también sirve para ver el detalle de un pedido */
+#panel-lateral-formulario .contenedor-tabla table th,
+#panel-lateral-formulario .contenedor-tabla table td { padding: 10px 12px; }
+
+@media (max-width: 900px) {
+  .formulario-linea { grid-template-columns: 1fr; }
+  .contenido-principal { padding: 24px 16px; }
+}
+
+/* ============================================================
+   Sesión y control de acceso por rol
+   ============================================================ */
+.usuario-sesion {
+  margin-top: 24px;
+  padding: 12px;
+  border-top: 1px solid var(--color-borde);
+  font-size: 14px;
+}
+.usuario-sesion p { margin: 0 0 10px; }
+.usuario-sesion span { color: #6b7c93; }
+
+/* Botón de una pantalla que el diagrama contempla pero aún no existe */
+.tarjeta-pendiente {
+  opacity: 0.55;
+  cursor: not-allowed;
+  border-style: dashed;
+}
