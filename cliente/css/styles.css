@@ -466,3 +466,39 @@ input[type="date"]:focus { outline: 2px solid var(--color-primario); outline-off
   cursor: not-allowed;
   border-style: dashed;
 }
+
+/* ===== Daniela: HU-05/06/07, HU-15, Cajero, Repartidor y Ver mesas ===== */
+.check-linea { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+.check-linea input { width: 16px; height: 16px; }
+.btn-cancelar {
+  padding: 8px 14px; border: 1px solid #c0392b; border-radius: 8px;
+  background: #fff; color: #c0392b; cursor: pointer; font-size: 14px;
+}
+.btn-cancelar:hover, .btn-cancelar[data-confirmar="si"] { background: #c0392b; color: #fff; }
+
+.titulo-panel-seccion { margin: 18px 0 10px; font-size: 16px; }
+.linea-tiempo { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 2px solid var(--color-primario); }
+.linea-tiempo li { position: relative; margin-bottom: 14px; }
+.linea-tiempo li::before {
+  content: ''; position: absolute; left: -23px; top: 4px; width: 12px; height: 12px;
+  border-radius: 50%; background: var(--color-primario);
+}
+.linea-tiempo strong { display: block; font-size: 14px; }
+.linea-tiempo span { font-size: 13px; color: #5b6b80; }
+
+.datos-pedido { display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; margin: 14px 0; font-size: 14px; }
+.datos-pedido dt { color: #5b6b80; }
+.datos-pedido dd { margin: 0; }
+
+.lista-tarjetas { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.tarjeta-entrega { background: #fff; border: 1px solid var(--color-borde); border-radius: 12px; padding: 18px; }
+.tarjeta-entrega header { display: flex; justify-content: space-between; align-items: center; font-size: 17px; }
+
+.grilla-mesas { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.tarjeta-mesa { border-radius: 12px; padding: 18px; border: 1px solid var(--color-borde); background: #fff; }
+.tarjeta-mesa strong { display: block; font-size: 18px; margin-bottom: 4px; }
+.tarjeta-mesa span { font-size: 13px; }
+.mesa-libre { border-left: 6px solid #2e9e5b; }
+.mesa-ocupada { border-left: 6px solid #e0a100; background: #fffbf0; }
+.badge, .acciones-fila button, .formulario-linea button { white-space: nowrap; }
+.tarjeta-formulario .titulo-seccion { margin-top: 0; }

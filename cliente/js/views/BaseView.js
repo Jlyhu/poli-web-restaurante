@@ -7,6 +7,7 @@ const CLASE_ESTADO = {
   'LISTO': 'badge-verde',
   'ENTREGADO': 'badge-gris',
   'CANCELADO': 'badge-rojo',
+  'PAGADO': 'badge-verde',
 };
 
 export class BaseView {

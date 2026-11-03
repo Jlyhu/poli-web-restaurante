@@ -15,7 +15,8 @@ export class DetallePanelView extends BaseView {
 
   abrir(pedido, detalle) {
     this.titulo.textContent = `Pedido ${pedido.idPedido}`;
-    this.subtitulo.textContent = `Mesa ${pedido.numeroMesa ?? '—'} · ${pedido.estado} · ${this.fecha(pedido.creado)}`;
+    const lugar = typeof pedido.destino === 'function' ? pedido.destino() : `Mesa ${pedido.numeroMesa ?? '—'}`;
+    this.subtitulo.textContent = `${lugar} · ${pedido.estado} · ${this.fecha(pedido.creado)}`;
     this.tbody.innerHTML = '';
     if (detalle.renglones.length === 0) {
       this.filaVacia(this.tbody, 3, 'Este pedido aún no tiene productos.');

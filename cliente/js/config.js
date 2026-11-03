@@ -80,5 +80,16 @@ export const ENDPOINTS = {
     reporteVentas: '/reporteVentas',
     reporteTiempos: '/reporteTiempos',
 
-    // ... y así sucesivamente
+    // --- SEGUIMIENTO DEL PEDIDO (HU-05, HU-06, HU-07, HU-15) ---
+    listarPedidosDetallados: '/getPedidosDetallados',
+    estadoPedido: '/getEstadoPedido',
+    trazabilidadPedido: '/getTrazabilidadPedido',
+    entregarPedido: '/entregarPedido',
+    cancelarPedido: '/cancelarPedido',
+
+    // --- CAJERO (caja y pagos) ---
+    cajaAbierta: '/getCajaAbierta',
+    abrirCaja: '/abrirCaja',
+    cerrarCaja: '/cerrarCaja',
+    registrarPagoPedido: '/registrarPagoPedido',
 };
