@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estado de los Pedidos</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-estado-pedido.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <!-- 1. MENÚ LATERAL IZQUIERDO (lo dibuja guard.js según el rol) -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu"></ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Consultar, entregar y cancelar pedidos</h1>
+                <p class="subtitulo">HU-05 consultar estado · HU-06 entregar · HU-07 cancelar</p>
+            </header>
+
+            <div class="filtros">
+                <div class="grupo-input">
+                    <label for="buscar-pedido">N.º de pedido</label>
+                    <input type="number" id="buscar-pedido" min="1" placeholder="Ej. 9201">
+                </div>
+                <div class="grupo-input">
+                    <label for="filtro-estado">Estado</label>
+                    <select id="filtro-estado">
+                        <option value="activos">Activos (pendiente, en preparación, listo)</option>
+                        <option value="PENDIENTE">Pendiente</option>
+                        <option value="EN PREPARACION">En preparación</option>
+                        <option value="LISTO">Listo para entregar</option>
+                        <option value="ENTREGADO">Entregado</option>
+                        <option value="CANCELADO">Cancelado</option>
+                        <option value="">Todos</option>
+                    </select>
+                </div>
+                <label class="check-linea"><input type="checkbox" id="solo-mios"> Solo mis pedidos</label>
+                <button id="btn-actualizar" class="btn-secundario" type="button">Actualizar</button>
+            </div>
+
+            <p id="contador" class="contador"></p>
+            <div class="contenedor-tabla">
+                <table id="tabla-pedidos">
+                    <thead>
+                        <tr><th>Pedido</th><th>Mesa</th><th>Estado</th><th>Creado</th><th>Última actualización</th><th>Total</th><th>Acción</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p class="nota-pie">Solo se entregan pedidos <strong>LISTOS</strong>. Se puede cancelar mientras esté PENDIENTE o EN PREPARACIÓN.</p>
+        </main>
+
+        <!-- PANEL LATERAL: detalle del pedido (lo llena DetallePanelView.js) -->
+        <aside id="panel-lateral-formulario">
+            <div class="cabecera-panel">
+                <h2 id="panel-titulo"></h2>
+                <p id="panel-subtitulo" class="subtitulo"></p>
+            </div>
+            <div class="contenedor-tabla">
+                <table id="panel-tabla">
+                    <thead><tr><th>Producto</th><th>Cant.</th><th>Observación</th></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p id="panel-total" class="total-pedido"></p>
+            <div class="acciones-formulario">
+                <button id="btn-cerrar-panel" class="btn-secundario" type="button">Cerrar</button>
+            </div>
+        </aside>
+
+        </div>
+    </body>
+</html>
