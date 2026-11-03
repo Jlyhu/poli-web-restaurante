@@ -50,6 +50,7 @@ export const ENDPOINTS = {
     actualizarProducto: '/updateProducto',
     agotarProducto: '/agotarProducto',
     eliminarProducto: '/deleteProducto',
+    obtenerProducto: '/getProducto',
 
     // --- MESAS ---
     listarMesas: '/getMesas',
