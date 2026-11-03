@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestionar Productos del Pedido</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-productos-pedido.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <!-- 1. MENÚ LATERAL IZQUIERDO -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu">
+            </ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Gestionar Productos del Pedido</h1>
+            </header>
+
+            <p class="subtitulo">Agregue o quite productos de un pedido pendiente y deje observaciones para cocina.</p>
+
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="select-pedido">Pedido</label>
+                    <select id="select-pedido">
+                        <option value="">Seleccione un pedido</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="aviso-estado" class="aviso oculto"></div>
+
+            <div class="tarjeta-formulario">
+                <div class="formulario-linea">
+                    <div class="grupo-input">
+                        <label for="select-producto">Producto</label>
+                        <select id="select-producto">
+                            <option value="">Seleccione un producto</option>
+                        </select>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="input-cantidad">Cantidad</label>
+                        <input type="number" id="input-cantidad" min="1" step="1" value="1">
+                    </div>
+                    <div class="grupo-input">
+                        <label for="input-notas">Observación para cocina</label>
+                        <input type="text" id="input-notas" maxlength="120" placeholder="Ej.: sin cebolla">
+                    </div>
+                    <button id="btn-agregar" class="btn-primario" type="button">Agregar</button>
+                </div>
+            </div>
+
+            <div class="contenedor-tabla">
+                <table id="tabla-detalle">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Observación</th>
+                            <th>Precio</th>
+                            <th>Subtotal</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ProductosPedidoView.js inyecta las filas -->
+                    </tbody>
+                </table>
+            </div>
+            <p id="total-pedido" class="total-pedido"></p>
+        </main>
+
+    </div>
+    </body>
+</html>

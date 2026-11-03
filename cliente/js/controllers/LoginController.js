@@ -1,22 +1,11 @@
 /**
  * LoginController.js  (CONTROLADOR)
- * -----------------------------------
- * Coordina el Modelo y la Vista. Es el único que conoce a ambos.
- *
- * Flujo típico:
- *   1. El usuario hace algo en la página  → la Vista llama al Controlador.
- *   2. El Controlador valida y le pide al Modelo los datos o el cambio.
- *   3. Con el resultado, el Controlador le indica a la Vista qué mostrar.
- *
- *     Usuario ──► Vista ──► Controlador ──► Modelo ──► Flask (REST)
- *                   ▲            │
- *                   └────────────┘  (actualiza la pantalla)
+ * HU-01: valida campos, pide el login al Modelo, guarda la sesión (usuario y rol)
+ * y lleva al inicio, donde solo se muestran las opciones de ese rol.
  */
+import { guardarSesion } from '../core/sesion.js';
+
 export class LoginController {
-  /**
-   * @param {import('../models/UsuarioModel.js').UsuarioModel} modelo
-   * @param {import('../views/LoginView.js').LoginView} vista
-   */
   constructor(modelo, vista) {
     this.modelo = modelo;
     this.vista = vista;
@@ -25,19 +14,18 @@ export class LoginController {
 
   async iniciarSesion({ nombre, credenciales }) {
     if (!nombre || !credenciales) {
-      this.vista.mostrarMensaje('Ingrese el nombre y la contraseña.', 'error');
+      this.vista.mostrarMensaje('El nombre y la contraseña son obligatorios.', 'error');
       return;
     }
-
     this.vista.bloquearFormulario(true);
     try {
       const respuesta = await this.modelo.iniciarSesion(nombre, credenciales);
-      this.vista.mostrarMensaje(`Bienvenido, ${respuesta?.nombre ?? nombre}.`);
+      guardarSesion(respuesta);
+      this.vista.mostrarMensaje(`Bienvenido, ${respuesta.nombre} (${respuesta.rol}).`);
       setTimeout(() => this.vista.irA('index.html'), 800);
     } catch (error) {
-      // 401 (datos malos), 403 (inactivo o sin rol), 400/415 (campos vacíos o sin JSON)
+      // 401 datos incorrectos, 403 usuario inactivo o sin rol
       this.vista.mostrarMensaje(error.message, 'error');
-    } finally {
       this.vista.bloquearFormulario(false);
     }
   }

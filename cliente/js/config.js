@@ -14,7 +14,7 @@
  * Si el servidor corre en otro equipo, reemplace "localhost" por su IP.
  * @type {string}
  */
-export const API_URL = 'http://localhost:5000'; 
+export const API_URL = 'http://127.0.0.1:5000'; 
 
 export const ENDPOINTS = {
     // --- USUARIOS ---
@@ -58,6 +58,27 @@ export const ENDPOINTS = {
     actualizarMesa: '/updateMesa',
     eliminarMesa: '/deleteMesa',
 
+
+    // --- PEDIDOS (HU-02, HU-08, HU-09) ---
+    listarPedidos: '/getPedidos',
+    listarMesasDisponibilidad: '/getMesasDisponibilidad',
+    listarPedidosConMesa: '/getPedidosConMesa',
+    crearPedidoMesa: '/crearPedidoMesa',
+    cambiarEstadoPedido: '/cambiarEstadoPedido',
+
+    // --- DETALLE DEL PEDIDO (HU-03, HU-04, HU-08) ---
+    detallePedidoConProducto: '/getDetallePedidoConProducto',
+    insertarDetallePedido: '/insertDetallePedido',
+    actualizarDetallePedido: '/updateDetallePedido',
+    eliminarDetallePedido: '/deleteDetallePedido',
+
+    // --- COCINEROS Y ADMINISTRADORES ---
+    listarCocineros: '/getCocineros',
+    listarAdministradores: '/getAdministradores',
+
+    // --- REPORTES (HU-14) ---
+    reporteVentas: '/reporteVentas',
+    reporteTiempos: '/reporteTiempos',
 
     // ... y así sucesivamente
 };

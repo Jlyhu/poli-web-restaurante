@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crear Pedido</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-crear-pedido.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <!-- 1. MENÚ LATERAL IZQUIERDO -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu">
+            </ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Crear Pedido</h1>
+            </header>
+
+            <p class="subtitulo">Seleccione la mesa del cliente para abrir un pedido nuevo. Cocina lo verá como pendiente.</p>
+
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="select-mesa">Mesa</label>
+                    <select id="select-mesa">
+                        <option value="">Seleccione una mesa</option>
+                    </select>
+                </div>
+                <button id="btn-crear-pedido" class="btn-primario" type="button">Crear pedido</button>
+            </div>
+
+            <h2 class="titulo-seccion">Pedidos activos</h2>
+            <div class="contenedor-tabla">
+                <table id="tabla-pedidos">
+                    <thead>
+                        <tr>
+                            <th>Pedido</th>
+                            <th>Mesa</th>
+                            <th>Estado</th>
+                            <th>Creado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- CrearPedidoView.js inyecta las filas -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+
+    </div>
+    </body>
+</html>

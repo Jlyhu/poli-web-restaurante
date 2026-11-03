@@ -5,45 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Poli WEB Restaurante</title>
         <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-index.js"></script>
     </head>
     <body>
         <div class="layout-container">
-
-        <!-- CONTENIDO PRINCIPAL -->
         <main class="contenido-principal">
             <header class="cabecera-pagina">
                 <h1 class="titulo-principal">Poli WEB Restaurante</h1>
+                <p class="subtitulo" id="saludo"></p>
             </header>
 
+            <!-- app-index.js dibuja aquí solo los botones del rol que inició sesión -->
             <section class="accesos">
-                <div class="columna-accesos">
-                    <p class="titulo-accesos">Acceso Rápido a Funcionalidades</p>
-                    <a class="tarjeta-acceso" href="crear-pedido.html">Crear Pedido</a>
-                    <a class="tarjeta-acceso" href="productos-pedido.html">Gestionar Productos del Pedido</a>
-                    <a class="tarjeta-acceso" href="observaciones.html">Registrar observaciones</a>
-                    <a class="tarjeta-acceso" href="estado-pedido.html">Consultar estado del pedido</a>
-                    <a class="tarjeta-acceso" href="entregar-pedido.html">Entregar pedido</a>
-                    <a class="tarjeta-acceso" href="cancelar-pedido.html">Cancelar pedido</a>
-                    <a class="tarjeta-acceso" href="pedidos-pendientes.html">Detalle de Pedidos Pendientes</a>
-                </div>
-
-                <div class="columna-accesos">
-                    <p class="titulo-accesos">Acceso Rápido a Funcionalidades</p>
-                    <a class="tarjeta-acceso" href="estado-preparacion.html">Actualizar estado de preparación</a>
-                    <a class="tarjeta-acceso" href="catalogos.html">Gestionar Categorías del menú y mesas</a>
-                    <a class="tarjeta-acceso" href="productos.html">Gestionar productos del menú</a>
-                    <a class="tarjeta-acceso" href="disponibilidad.html">Gestionar disponibilidad de productos</a>
-                    <a class="tarjeta-acceso" href="usuarios.html">Gestionar usuarios</a>
-                    <a class="tarjeta-acceso" href="reportes.html">Consultar reportes administrativos</a>
-                    <a class="tarjeta-acceso" href="trazabilidad.html">Consultar trazabilidad del pedido</a>
+                <div class="columna-accesos" id="botones-rol">
+                    <p class="titulo-accesos">Acceso a funcionalidades</p>
                 </div>
             </section>
 
             <div class="zona-login">
-                <a class="btn-primario btn-enlace" href="login.html">Iniciar sesión</a>
+                <button id="btn-cerrar-sesion" class="btn-primario" type="button">Cerrar sesión</button>
             </div>
         </main>
-
-    </div>
+        </div>
     </body>
 </html>

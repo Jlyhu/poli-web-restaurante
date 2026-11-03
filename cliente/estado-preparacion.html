@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Actualizar Estado de Preparación</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <script type="module" src="js/core/guard.js"></script>
+        <script type="module" src="js/app-preparacion.js"></script>
+    </head>
+    <body>
+        <div class="layout-container">
+
+        <!-- 1. MENÚ LATERAL IZQUIERDO -->
+        <nav id="sidebar-menu" class="sidebar">
+            <h2 class="logo-texto">Poli WEB Restaurante</h2>
+            <ul class="lista-menu">
+            </ul>
+        </nav>
+
+        <!-- 2. CONTENIDO PRINCIPAL -->
+        <main class="contenido-principal">
+            <header class="cabecera-pagina">
+                <h1 class="titulo-principal">Actualizar Estado de Preparación</h1>
+            </header>
+
+            <div class="barra-herramientas">
+                <div class="buscador">
+                    <label for="select-cocinero">Cocinero responsable</label>
+                    <select id="select-cocinero">
+                        <option value="">Seleccione el cocinero responsable</option>
+                    </select>
+                </div>
+                <button id="btn-actualizar" class="btn-secundario" type="button">Actualizar</button>
+            </div>
+
+            <h2 class="titulo-seccion">Pendientes</h2>
+            <div class="contenedor-tabla">
+                <table id="tabla-pendientes">
+                    <thead>
+                        <tr><th>Pedido</th><th>Mesa</th><th>Creado</th><th>Acción</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <h2 class="titulo-seccion">En preparación</h2>
+            <div class="contenedor-tabla">
+                <table id="tabla-preparacion">
+                    <thead>
+                        <tr><th>Pedido</th><th>Mesa</th><th>Creado</th><th>Acción</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p class="nota-pie">Al marcar un pedido como listo deja esta lista y el mesero puede entregarlo.</p>
+        </main>
+
+        <!-- PANEL LATERAL: detalle del pedido (lo llena DetallePanelView.js) -->
+        <aside id="panel-lateral-formulario">
+            <div class="cabecera-panel">
+                <h2 id="panel-titulo"></h2>
+                <p id="panel-subtitulo" class="subtitulo"></p>
+            </div>
+            <div class="contenedor-tabla">
+                <table id="panel-tabla">
+                    <thead>
+                        <tr><th>Producto</th><th>Cant.</th><th>Observación</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p id="panel-total" class="total-pedido"></p>
+            <div class="acciones-formulario">
+                <button id="btn-cerrar-panel" class="btn-secundario" type="button">Cerrar</button>
+            </div>
+        </aside>
+
+    </div>
+    </body>
+</html>
